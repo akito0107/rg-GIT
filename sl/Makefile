@@ -11,3 +11,9 @@ CFLAGS=-O
 sl: sl.c sl.h
 	$(CC) $(CFLAGS) -o sl sl.c -lcurses -ltermcap
 
+assemble: sl.c sl.h
+	$(CC) $(CFLAGS) -S sl.c -lcurses -ltermcap
+
+clean:
+	rm sl sl.s
+
