@@ -1,6 +1,4 @@
 /*
- * EXTREMELY EVIL SL!!!
- * modified by kenz (April 16th 2009)
  * ======================================== sl.c: Copyright 1993,1998 Toyoda
  * Masashi (toyoda@is.titech.ac.jp) Last Modified: 1998/ 7/22
  * ========================================
@@ -139,7 +137,7 @@ add_sl(int x)
 	static char    *car[LOGOHIGHT + 1]
 	= {LCAR1, LCAR2, LCAR3, LCAR4, LCAR5, LCAR6, DELLN};
 
-	int		i         , y, py1 = 0, py2 = 0, py3 = 0;
+	int		i, y, py1 = 0, py2 = 0, py3 = 0;
 
 	if (x < -LOGOLENGTH)
 		return ERR;
