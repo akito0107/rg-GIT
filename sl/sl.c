@@ -74,7 +74,7 @@ void
 main(int argc, char *argv[])
 {
 	int		x         , i;
-	int		hoge;
+	int		hoge, color;
 
 	srandom(time(0));
 	for (i = 1; i < argc; ++i) {
@@ -94,8 +94,19 @@ main(int argc, char *argv[])
 	leaveok(stdscr, TRUE);
 	scrollok(stdscr, FALSE);
 
+    start_color();
+    init_pair(1, COLOR_RED, COLOR_BLACK);
+    init_pair(2, COLOR_BLUE,COLOR_BLACK);
+    init_pair(3, COLOR_WHITE, COLOR_BLACK);
+
+
 	hoge = random() % 20000;
+    color = random() % 3 + 1;
+
 	for (x = COLS - 1;; --x) {
+
+        attron(COLOR_PAIR(color));
+
 		if (LOGO == 0) {
 			if (add_D51(x) == ERR)
 				break;
@@ -112,6 +123,8 @@ main(int argc, char *argv[])
 			if (random() % 3 == 0) if (LOGO == 1) LOGO = 0; else LOGO = 1;
 			hoge = random() % 20000;
 		}
+
+        attroff(COLOR_PAIR(color));
 	}
 	mvcur(0, COLS - 1, LINES - 1, 0);
 	endwin();
